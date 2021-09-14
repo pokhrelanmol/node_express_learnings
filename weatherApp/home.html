@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      .box {
+        margin: 0 auto;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 400px;
+        height: 500px;
+        background-color: rgb(62, 230, 188);
+        box-shadow: 2px 4px 17px 1px rgba(44, 36, 36, 0.75);
+        -webkit-box-shadow: 2px 4px 17px 1px rgba(44, 36, 36, 0.75);
+        -moz-box-shadow: 2px 4px 17px 1px rgba(44, 36, 36, 0.75);
+      }
+
+      #weather-condition i {
+        font-size: 6rem;
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>live weather</title>
+  </head>
+  <body>
+    <div class="box">
+      <div class="wave one"></div>
+      <div class="wave two"></div>
+      <div class="wave three"></div>
+      <div id="weather-condition">
+        <i class="fas fa-sun" style="color: #eccc68"></i>
+      </div>
+      <div class="info">
+        <h2 class="location">{%city%},{%country%}</h2>
+        <p id="date">SUN | SEPT 21 | 8:00PM</p>
+        <h1 class="temperature">{%temperature%}	&#8451</h1>
+        <h3 class="temperature-min-max">min: {%min%}	&#8451 | max: {%max%}	&#8451</h3>
+      </div>
+    </div>
+    <script>
+      const date = document.getElementById("date");
+      const weatherCondition = document.getElementById("weather-condition");
+      const currentDate = new Date();
+      const temperatureStatus = "{%temperatureStatus%}"
+      if(temperatureStatus==="Sunny"){
+        weatherCondition.innerHTML= `<i class="fas fa-sun" style="color:#eccc68"></i>`
+      }else if(temperatureStatus=="Rainy"){
+        weatherCondition.innerHTML= `<i class="fas fa-cloud-rain  style="color:#9D9D9D"></i>`
+      }else if(temperatureStatus=="Clouds"){ 
+          weatherCondition.innerHTML= `<i class="fas fa-cloud style="color:#EFEFEF"></i>`
+      }else{
+weatherCondition.innerHTML= `<i class="fas fa-cloud style="color:#79B4B7"></i>`
+
+      }
+      const amPm = () => {
+        if (currentDate.getHours() > 12) {
+          return "PM";
+        } else {
+          return "AM";
+        }
+      };
+      date.innerText = `${currentDate.toLocaleString()} ${amPm()}`;
+    </script>
+  </body>
+</html>
