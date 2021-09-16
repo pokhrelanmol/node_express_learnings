@@ -58,13 +58,13 @@
       const currentDate = new Date();
       const temperatureStatus = "{%temperatureStatus%}"
       if(temperatureStatus==="Sunny"){
-        weatherCondition.innerHTML= `<i class="fas fa-sun" style="color:#eccc68"></i>`
+        weatherCondition.innerHTML= `<i class="fas fa-sun" style="color:#eccc68;"></i>`
       }else if(temperatureStatus=="Rainy"){
-        weatherCondition.innerHTML= `<i class="fas fa-cloud-rain  style="color:#9D9D9D"></i>`
+        weatherCondition.innerHTML= `<i class="fas fa-cloud-rain"  style="color:#9D9D9D;"></i>`
       }else if(temperatureStatus=="Clouds"){ 
-          weatherCondition.innerHTML= `<i class="fas fa-cloud style="color:#EFEFEF"></i>`
+          weatherCondition.innerHTML= `<i class="fas fa-cloud" style="color:#f1f2ff6;"></i>`
       }else{
-weatherCondition.innerHTML= `<i class="fas fa-cloud style="color:#79B4B7"></i>`
+weatherCondition.innerHTML= `<i class="fas fa-cloud" style="color:#79B4B7;"></i>`
 
       }
       const amPm = () => {
